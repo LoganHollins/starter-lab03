@@ -21,7 +21,7 @@ class Welcome extends Application {
     function index() {
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
         
-        $source = $this->quotes->get(2);
+        $source = $this->quotes->last();
         //assigns all data to the data needed by the view
         $this->data['who'] = $source['who'];
         $this->data['what'] = $source['what'];
