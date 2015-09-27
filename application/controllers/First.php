@@ -8,7 +8,7 @@
  *
  * ------------------------------------------------------------------------
  */
-class Welcome extends Application {
+class First extends Application {
 
     function __construct() {
         parent::__construct();
@@ -19,21 +19,9 @@ class Welcome extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'homepage';    // this is the view we want shown
-        // build the list of authors, to pass on to our view
-        $source = $this->quotes->all();
-        $authors = array();
-        foreach ($source as $record) {
-            $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        }
-        $this->data['authors'] = $authors;
-
-        $this->render();
-    }
-    function shucks() {
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
-
-        $source = $this->quotes->get(2);
+        
+        $source = $this->quotes->first();
         //assigns all data to the data needed by the view
         $this->data['who'] = $source['who'];
         $this->data['what'] = $source['what'];
@@ -42,10 +30,11 @@ class Welcome extends Application {
 
         $this->render();
     }
-    function gimme($n) {
+
+    function zzz() {
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
 
-        $source = $this->quotes->get($n);
+        $source = $this->quotes->get(1);
         //assigns all data to the data needed by the view
         $this->data['who'] = $source['who'];
         $this->data['what'] = $source['what'];
